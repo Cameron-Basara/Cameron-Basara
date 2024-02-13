@@ -1,5 +1,5 @@
 ### Hi there 👋
-I'm currently working on developing a website for a personilized project portfolio to showcase some of the things I've made and done.
+I'm currently working on developing a website for a personilized project portfolio to showcase some of the things I've made and done. **Work in progress**
 
 <!--
 **Cameron-Basara/Cameron-Basara** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
