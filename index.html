@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="terminal" class="terminal">
+        <pre id="terminal-content"></pre>
+      </div>
+      
+      <div id="intro-screen" class="intro-screen" style="display:none;">
+        <div class="intro-header">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Cameron Basara</p>
+      </div>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi! I'm Cameron and I'm currently enrolled as a 3rd year Engineering Student in the department of Chemical Engineering.
+             
+            
+        </p>
+    </section>
+    
+    <div class="flex-container">
+        <div class="centered-content"><div class="hover-area">My Dream</div>
+        <div class="preview-content">
+            <p>Rule the world!</p>
+        </div></div>
+      </div>
+
+
+    <section id="projects">
+        <div class="flex-container">
+            <div class="centered-content"><h2>Projects</h2></div>
+          </div>
+       
+        <div class="project">
+            <h3>Tic-Tac-Toe Agent</h3>
+            <p> <a href="https://github.com/Cameron-Basara/CS50-s-Intro-to-AI/tree/main/Search/t2/tic-tac-toe/tictactoe"> Github Repo</a></br>
+            AI agent that solves (well, plays to draw or win) Tic-Tac-Toe in Python. The agent uses a minimax algorithm, optimized with Alpha-Beta
+            pruning to efficiently search through a node tree.  </br>
+            <div class="video-container">
+                <video controls loop>
+                  <source src="TicTacToePreview.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+               
+            
+            </p>
+        </div>
+        <!-- Add more projects here -->
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Cameron Basara</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

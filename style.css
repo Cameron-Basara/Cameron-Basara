@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+#navbar {
+    background: #555;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#navbar ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+section {
+    padding: 20px;
+}
+
+.project {
+    background: #f4f4f4;
+    margin: 15px 0;
+    padding: 10px;
+}
+
+
+.hover-area {
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    cursor: pointer;
+}
+  
+.preview-content {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000000;
+    background-color: #766d6d;
+    padding: 10px;
+    z-index: 100;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 10vh; /* Example height */
+  }
+  
+
+.video-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically, if needed */
+    height: 75vh; /* Adjust or remove based on your layout */
+  }
+  
+  video {
+    width: 50%; /* Set the video width or a fixed width like 400px */
+    max-width: 100%; /* Ensure it's responsive and doesn't overflow its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Intro screen style */
+  .terminal {
+    background-color: black;
+    color: limegreen;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20;
+    padding: 20px;
+    min-height: 100vh;
+    white-space: pre-wrap;
+    overflow: hidden;
+  }
+  
+  .intro-screen {
+    background-color: #333; /* Dark grey background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+  }
+  
