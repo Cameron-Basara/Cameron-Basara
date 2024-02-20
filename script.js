@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
           var line = script[lineIndex].text;
           if (charIndex < line.length) {
             terminalContent.textContent += line[charIndex++];
-            setTimeout(typeLine, Math.random() * 100); // Typing effect speed
+            setTimeout(typeLine, Math.random() * 10); // Typing effect speed
           } else {
             terminalContent.textContent += '\n'; // Move to the next line
             charIndex = 0;
@@ -74,18 +74,96 @@ document.addEventListener('DOMContentLoaded', function() {
         terminal.style.display = 'none';
         introScreen.style.display = 'block';
         introScreen.style.opacity = '0';
-        fadeIn(introScreen, 0);
+        fadeIn(introScreen, 0, function(){
+          window.location.hash = 'page2';
+        });
       }, 1000); // Fade out duration
     }
   
-    function fadeIn(element, opacity) {
+    function fadeIn(element, opacity, callback) {
       if (opacity < 1) {
         opacity += 0.05; // Fade in speed
         element.style.opacity = opacity;
         requestAnimationFrame(function() { fadeIn(element, opacity); });
+      }
+      if (typeof callback === 'function'){
+          callback();
       }
     }
   
     typeLine();
   });
   
+
+// For different pages
+function hashChanged() {
+  var hash = location.hash.slice(1); 
+  var pageId = hash || 'page1'; // Default to 'page1' if the hash is empty
+
+  document.querySelectorAll('.page').forEach(function(page) {
+      page.classList.remove('active'); // Hide all pages
+  });
+
+  var activePage = document.getElementById(pageId);
+  
+  if (pageId === 'page1' || pageId === 'page2'){
+      toggleScrollLock(pageId);
+  }
+  toggleScrollLock();
+
+  if (activePage) {
+      activePage.classList.add('active'); // Show the active page
+  } else {
+      document.getElementById('page1').classList.add('active');
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', hashChanged);
+window.addEventListener('hashchange', hashChanged);
+
+
+document.querySelectorAll('.bubble').forEach(bubble => {
+  bubble.addEventListener('click', function() {
+      // Start the bubble expansion animation
+      this.classList.add('expanding');
+
+      // Hide the text
+      const header = this.querySelector('h1'); 
+        if (header) {
+            fadeOut(header);
+        }
+
+      // Slight delay to let the expansion animation start
+      setTimeout(() => {
+          window.location.hash = this.getAttribute('data-target');
+      }, 500); // Adjust this delay based on the start of your bubble expansion animation
+  });
+});
+
+
+function fadeOut(element) {
+    let opacity = 1; // Initial opacity
+    function decreaseOpacity() {
+        opacity -= 0.05; // Adjust for speed of fade
+        if (opacity <= 0) {
+            element.style.opacity = 0;
+            return; // Stop the fade-out process
+        }
+        element.style.opacity = opacity;
+        requestAnimationFrame(decreaseOpacity); // Continue the fade-out process
+    }
+    decreaseOpacity();
+}
+
+
+// Function to toggle no-scroll class on the body
+function toggleScrollLock(pageId) {
+  // Remove no-scroll class from body for safety
+  document.body.classList.remove('no-scroll');
+
+  // Add no-scroll class to body if a specific page is provided
+  if (pageId) {
+      document.body.classList.add('no-scroll');
+  }
+}
